@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Phát Hiện Gian Lận</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <div id="login-page" class="page active">
+        <div class="page-container">
+            <div class="auth-card">
+                <div class="card-header">
+                    <div class="icon-wrapper primary-bg">
+                        <svg class="icon-large" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h1 class="card-title">Hệ Thống Phát Hiện Gian Lận</h1>
+                    <p class="card-description">Đăng nhập để tiếp tục giám sát kỳ thi</p>
+                </div>
+                <div class="card-content">
+                    <form id="login-form" class="form">
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">Email</label>
+                            <input type="email" id="login-email" class="form-input" placeholder="example@university.edu.vn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password" class="form-label">Mật khẩu</label>
+                            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Đăng nhập</button>
+                        <div class="form-footer">
+                            <p class="text-muted">
+                                Chưa có tài khoản? 
+                                <a href="#" class="link-primary" onclick="showPage('register')">Đăng ký ngay</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="register-page" class="page">
+        <div class="page-container">
+            <div class="auth-card">
+                <div class="card-header">
+                    <div class="icon-wrapper secondary-bg">
+                        <svg class="icon-large" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h1 class="card-title">Đăng Ký Tài Khoản</h1>
+                    <p class="card-description">Tạo tài khoản mới để sử dụng hệ thống</p>
+                </div>
+                <div class="card-content">
+                    <form id="register-form" class="form">
+                        <div class="form-group">
+                            <label for="register-name" class="form-label">Họ và tên</label>
+                            <input type="text" id="register-name" class="form-input" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" id="register-email" class="form-input" placeholder="example@university.edu.vn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password" class="form-label">Mật khẩu</label>
+                            <input type="password" id="register-password" class="form-input" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm" class="form-label">Xác nhận mật khẩu</label>
+                            <input type="password" id="register-confirm" class="form-input" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phân quyền</label>
+                            <div class="radio-group">
+                                <label class="radio-item radio-primary">
+                                    <input type="radio" name="role" value="examiner" checked>
+                                    <span>Hội đồng thi</span>
+                                </label>
+                                <label class="radio-item radio-secondary">
+                                    <input type="radio" name="role" value="student">
+                                    <span>Sinh viên dự thi</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-full">Đăng ký</button>
+                        <div class="form-footer">
+                            <p class="text-muted">
+                                Đã có tài khoản? 
+                                <a href="#" class="link-secondary" onclick="showPage('login')">Đăng nhập ngay</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-page" class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="header-icon">
+                        <svg class="icon-large" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="header-title">Hệ Thống Phát Hiện Gian Lận</h1>
+                        <p class="header-subtitle">Giám sát và phát hiện hành vi gian lận trong kỳ thi</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-badge">
+                        <svg class="icon-small" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span id="user-role">Hội đồng thi</span>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showPage('login')">
+                        <svg class="icon-small" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        Đăng xuất
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="welcome-banner">
+                <h2 class="banner-title">Chào mừng đến với hệ thống giám sát</h2>
+                <p class="banner-description">Sử dụng AI để phát hiện hành vi gian lận qua hình ảnh và video theo thời gian thực</p>
+            </div>
+
+            <div class="detection-grid">
+                <!-- Image Detection -->
+                <div class="detection-card image-card">
+                    <div class="detection-header primary-header">
+                        <svg class="icon-medium" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <div>
+                            <h3 class="detection-title">Phát Hiện Qua Hình Ảnh</h3>
+                            <p class="detection-subtitle">Tải lên ảnh để phát hiện hành vi gian lận</p>
+                        </div>
+                    </div>
+                    <div class="detection-content">
+                        <div class="upload-area upload-primary" id="image-upload-area">
+                            <input type="file" id="image-input" accept="image/*" style="display: none;">
+                            <div class="upload-placeholder" id="image-placeholder">
+                                <svg class="icon-xlarge" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <span class="upload-text">Nhấn để tải ảnh lên</span>
+                                <span class="upload-hint">Hỗ trợ PNG, JPG (tối đa 10MB)</span>
+                            </div>
+                            <div class="upload-preview" id="image-preview" style="display: none;">
+                                <img id="preview-image" alt="Preview">
+                                <button class="change-file-btn" onclick="changeImage()">Tải ảnh khác</button>
+                            </div>
+                        </div>
+                        <button id="analyze-image-btn" class="btn btn-primary btn-full" style="display: none;" onclick="analyzeImage()">
+                            Phân tích hình ảnh
+                        </button>
+                        <div id="image-result" class="result-container" style="display: none;">
+                            <div class="result-header">
+                                <h4>Kết quả phân tích:</h4>
+                                <span id="image-status-badge" class="status-badge"></span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div class="confidence-label">
+                                    <span>Độ tin cậy:</span>
+                                    <span id="image-confidence">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div id="image-progress" class="progress-fill"></div>
+                                </div>
+                            </div>
+                            <div class="result-details">
+                                <h4>Chi tiết:</h4>
+                                <ul id="image-details"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Detection -->
+                <div class="detection-card video-card">
+                    <div class="detection-header secondary-header">
+                        <svg class="icon-medium" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <div>
+                            <h3 class="detection-title">Phát Hiện Qua Video</h3>
+                            <p class="detection-subtitle">Xem lại video và phát hiện hành vi gian lận</p>
+                        </div>
+                    </div>
+                    <div class="detection-content">
+                        <div class="upload-area upload-secondary" id="video-upload-area">
+                            <input type="file" id="video-input" accept="video/*" style="display: none;">
+                            <div class="upload-placeholder" id="video-placeholder">
+                                <svg class="icon-xlarge" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <span class="upload-text">Nhấn để tải video lên</span>
+                                <span class="upload-hint">Hỗ trợ MP4, AVI, MOV (tối đa 100MB)</span>
+                            </div>
+                            <div class="upload-preview" id="video-preview" style="display: none;">
+                                <video id="preview-video" controls></video>
+                                <button class="change-file-btn" onclick="changeVideo()">Tải video khác</button>
+                            </div>
+                        </div>
+                        <button id="analyze-video-btn" class="btn btn-secondary btn-full" style="display: none;" onclick="analyzeVideo()">
+                            Phân tích video
+                        </button>
+                        <div id="video-stats" class="stats-grid" style="display: none;">
+                            <div class="stat-card stat-total">
+                                <div class="stat-value" id="stat-total">0</div>
+                                <div class="stat-label">Tổng sự kiện</div>
+                            </div>
+                            <div class="stat-card stat-safe">
+                                <div class="stat-value" id="stat-safe">0</div>
+                                <div class="stat-label">An toàn</div>
+                            </div>
+                            <div class="stat-card stat-suspicious">
+                                <div class="stat-value" id="stat-suspicious">0</div>
+                                <div class="stat-label">Nghi ngờ</div>
+                            </div>
+                            <div class="stat-card stat-cheating">
+                                <div class="stat-value" id="stat-cheating">0</div>
+                                <div class="stat-label">Gian lận</div>
+                            </div>
+                        </div>
+                        <div id="video-timeline" class="timeline-container" style="display: none;">
+                            <div class="timeline-header">
+                                <svg class="icon-small" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <h4>Dòng thời gian phát hiện:</h4>
+                            </div>
+                            <div id="timeline-events" class="timeline-events"></div>
+                            <div id="analyzing-indicator" class="analyzing-indicator" style="display: none;">
+                                <div class="spinner"></div>
+                                <p>Đang phân tích video...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script src="/static/script.js"></script>
+</body>
+</html>
