@@ -1,0 +1,6 @@
+opencv-python
+torch ultralytics joblib
+ultralytics
+scikit-learn
+streamlit
+fastapi uvicorn python-multipart ultralytics torch joblib Pillow opencv-python-headless
